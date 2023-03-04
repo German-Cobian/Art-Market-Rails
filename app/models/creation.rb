@@ -9,5 +9,6 @@ class Creation < ApplicationRecord
   validates :date_of_composition, presence: true
   validates :art_category, presence: true
   validates :country_of_origin, presence: true
+  validates :comment, presence: true
   validates :price, presence: true
 end
