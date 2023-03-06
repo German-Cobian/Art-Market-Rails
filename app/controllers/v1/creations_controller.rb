@@ -1,24 +1,26 @@
 class V1::CreationsController < ApplicationController
 
   def index
-    render json: Creation.all.to_json
+    @creations = Creation.all
+
+    render json: CreationSerializer.new(@creations).serializable_hash[:data], status: :ok
   end
 
   def show
-    creation = Creation.find_by(id: params[:id])
+    @creation = Creation.find_by(id: params[:id])
 
-    if creation.nil?
+    if @creation.nil?
       render status: 404, json: { error: 'Art piece not found' }.to_json
     else
-      render json: creation.to_json
+      render json: CreationSerializer.new(@creation).serializable_hash[:data][:attributes], status: :ok
     end
   end
 
   def create
-    creation = Creation.new(creation_params)
+    @creation = Creation.new(creation_params)
 
-    if creation.save
-      render json: creation.to_json
+    if @creation.save
+      render json: CreationSerializer.new(@creation).serializable_hash[:data][:attributes], status: :created
     else
       render status: 500, json: { error: 'Art piece could not be created' }.to_json
     end
