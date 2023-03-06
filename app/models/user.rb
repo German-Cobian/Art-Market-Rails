@@ -10,4 +10,11 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: { case_sensitive: false }
   validates :password, presence: true
+
+  enum role: %i[user admin]
+  after_initialize :set_default_role, if: :new_record?
+
+  def set_default_role
+    self.role ||= :user
+  end
 end
