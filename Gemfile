@@ -41,6 +41,9 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'fast_jsonapi'
 
+# Gem for authorization
+gem 'cancancan'
+
 # Serializer
 gem "jsonapi-serializer", "~> 2.2"
 
