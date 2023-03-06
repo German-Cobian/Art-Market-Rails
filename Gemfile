@@ -41,6 +41,9 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'fast_jsonapi'
 
+# Serializer
+gem "jsonapi-serializer", "~> 2.2"
+
 # Linters for Ruby
 gem 'rubocop', '>= 1.0', '< 2.0'
 

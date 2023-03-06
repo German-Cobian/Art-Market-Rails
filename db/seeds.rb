@@ -9,8 +9,8 @@
 user_1 = User.create(username: 'AdminUser', role: 1, email: 'admin@gmail.com', password: "123admin")
 user_2 = User.create(username: 'RegUser', role: 0, email: 'reg@gmail.com', password: "123reg")
 
-creation_1 = Creation.create(artist: 'Pablo Picasso', title: 'Woman with White Hat', type_of_work: 'painting', medium: 'Oil on canvas', dimensions: '40 x 50 cm', date_of_composition: '1947',  art_category: 'cubism', country_of_origin: 'Spain', comment: "A fragmented wench", price: '1600')
-creation_2 = Creation.create(artist: 'Eugene Delacroix', title: 'Caravan in the Sahara', type_of_work: 'painting', medium: 'Oil on canvas', dimensions: '35 x 40 cm', date_of_composition: '1833', art_category: 'romanticism', country_of_origin: 'France', comment: "Rocking the Kasbah", price: '2300')
+creation_1 = Creation.create(artist: 'Pablo Picasso', title: 'Woman with White Hat', type_of_work: 'painting', medium: 'Oil on canvas', dimensions: '40 x 50 cm', date_of_composition: '1947',  art_category: 'cubism', comment: "A fragmented wench", price: '1600')
+creation_2 = Creation.create(artist: 'Eugene Delacroix', title: 'Caravan in the Sahara', type_of_work: 'painting', medium: 'Oil on canvas', dimensions: '35 x 40 cm', date_of_composition: '1833', art_category: 'romanticism', comment: "Rocking the Kasbah", price: '2300')
 
 purchase_1 = Purchase.create(user_id: 1, creation_id: 1, quantity: 1)
 purchase_2 = Purchase.create(user_id: 2, creation_id: 2, quantity: 2)

@@ -38,6 +38,6 @@ class V1::CreationsController < ApplicationController
   private
 
   def creation_params
-    params.require(:creation).permit(:artist, :title, :type_of_work, :medium, :dimensions, :date_of_composition, :art_category, :country_of_origin, :comment, :price)
+    params.require(:creation).permit(:artist, :title, :type_of_work, :medium, :dimensions, :date_of_composition, :art_category, :comment, :price)
   end
 end
