@@ -17,6 +17,7 @@ class V1::CreationsController < ApplicationController
   end
 
   def create
+    if current_user.admin?
     @creation = Creation.new(creation_params)
 
     if @creation.save
@@ -24,9 +25,13 @@ class V1::CreationsController < ApplicationController
     else
       render status: 500, json: { error: 'Art piece could not be created' }.to_json
     end
+    else
+      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
+    end
   end
 
   def destroy
+    if current_user.admin?
     creation = Creation.find_by(id: params[:id])
 
     if creation.nil?
@@ -34,6 +39,9 @@ class V1::CreationsController < ApplicationController
     else
       creation.destroy
       render json: { message: 'Art piece deleted' }.to_json
+    end
+    else
+      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
     end
   end
 
