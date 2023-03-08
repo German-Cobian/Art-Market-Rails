@@ -1,4 +1,5 @@
 class V1::CreationsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @creations = Creation.all
